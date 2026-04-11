@@ -27,7 +27,7 @@ export default function OnboardingScreen({ navigation }) {
         
         <TouchableOpacity 
           style={styles.button} 
-          onPress={() => navigation.navigate('SocialSignIn')}
+          onPress={() => navigation.navigate('SignIn')}
         >
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>

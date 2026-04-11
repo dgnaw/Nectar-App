@@ -26,7 +26,7 @@ export default function App() {
           <Stack.Screen name="Verification" component={VerificationScreen} />
           <Stack.Screen name="SelectLocation" component={SelectLocationScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
-          {/* <Stack.Screen name="SignUp" component={SignUpScreen} /> */}
+          <Stack.Screen name="SignUp" component={SignUpScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

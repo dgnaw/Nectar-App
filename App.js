@@ -20,8 +20,8 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Splash" component={SplashScreen} />
-          {/* <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-          <Stack.Screen name="SignIn" component={SignInScreen} />
+          <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+          {/* <Stack.Screen name="SignIn" component={SignInScreen} />
           <Stack.Screen name="Number" component={NumberScreen} />
           <Stack.Screen name="Verification" component={VerificationScreen} />
           <Stack.Screen name="SelectLocation" component={SelectLocationScreen} />

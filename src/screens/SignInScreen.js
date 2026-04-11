@@ -1,124 +1,139 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  TextInput, 
+  TouchableOpacity, 
+  KeyboardAvoidingView, 
+  Platform 
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import StudentInfo from '../components/StudentInfo';
 
-export default function SocialSignInScreen({ navigation }) {
+export default function NumberScreen({ navigation }) {
   return (
-    <View style={styles.mainContainer}>
+    <SafeAreaView style={styles.container}>
       <StudentInfo />
       
-      <ScrollView bounces={false} contentContainerStyle={styles.scrollContent}>
-        <Image 
-          source={require('../../assets/signIn_background.png')} 
-          style={styles.headerImage}
-          resizeMode="cover"
-        />
-
-        <View style={styles.contentContainer}>
-          <Text style={styles.title}>Get your groceries{"\n"}with nectar</Text>
-          
-          <TouchableOpacity style={styles.phoneInputContainer} onPress={() => navigation.navigate('Number')}>
-            <Text style={styles.flag}>🇧🇩</Text>
-            <Text style={styles.prefix}>+880</Text>
-            <TextInput style={styles.input} editable={false} pointerEvents="none" />
+      <KeyboardAvoidingView 
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.keyboardContainer}
+      >
+        <View style={styles.innerContainer}>
+          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+            <Text style={styles.backIcon}>‹</Text>
           </TouchableOpacity>
 
-          <Text style={styles.orText}>Or connect with social media</Text>
-
-          <TouchableOpacity style={[styles.socialBtn, { backgroundColor: '#5383EC' }]}>
-            <View style={styles.iconContainer}>
-              <Text style={styles.socialIconText}>G</Text>
+          <View style={styles.content}>
+            <Text style={styles.title}>Enter your mobile number</Text>
+            
+            <Text style={styles.label}>Mobile Number</Text>
+            
+            <View style={styles.inputContainer}>
+              <Text style={styles.flag}>🇧🇩</Text>
+              <Text style={styles.prefix}>+880</Text>
+              <TextInput 
+                style={styles.input} 
+                autoFocus={true} 
+                keyboardType="phone-pad" 
+              />
             </View>
-            <Text style={styles.btnText}>Continue with Google</Text>
-          </TouchableOpacity>
+          </View>
 
-          <TouchableOpacity style={[styles.socialBtn, { backgroundColor: '#4A66AC', marginTop: 20 }]}>
-            <View style={styles.iconContainer}>
-              <Text style={[styles.socialIconText, { fontWeight: 'bold' }]}>f</Text>
-            </View>
-            <Text style={styles.btnText}>Continue with Facebook</Text>
+          <TouchableOpacity 
+            style={styles.fab} 
+            onPress={() => navigation.navigate('Verification')}
+          >
+            <Text style={styles.fabIcon}>›</Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
-    </View>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  mainContainer: {
+  container: { 
+    flex: 1, 
+    backgroundColor: '#FCFCFC' 
+  },
+  keyboardContainer: {
     flex: 1,
-    backgroundColor: '#FCFCFC',
   },
-  scrollContent: {
-    flexGrow: 1,
-  },
-  headerImage: {
-    width: '100%',
-    height: 380, 
-  },
-  contentContainer: {
-    paddingHorizontal: 25,
-    paddingBottom: 40,
-    marginTop: -20, 
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#030303',
-    marginBottom: 30,
-    lineHeight: 35,
-  },
-  phoneInputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E2E2E2',
-    paddingBottom: 15,
-    marginBottom: 40,
-  },
-  flag: {
-    fontSize: 28,
-    marginRight: 10,
-  },
-  prefix: {
-    fontSize: 18,
-    fontWeight: '500',
-    marginRight: 10,
-    color: '#030303',
-  },
-  input: {
+  innerContainer: {
     flex: 1,
-    fontSize: 18,
-  },
-  orText: {
-    textAlign: 'center',
-    color: '#828282',
-    marginBottom: 30,
-    fontSize: 14,
-  },
-  socialBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 18,
     paddingHorizontal: 20,
-    borderRadius: 15,
+    paddingBottom: 20, 
   },
-  iconContainer: {
-    width: 30,
-    alignItems: 'center',
+  backButton: {
+    marginTop: 10,
+    marginBottom: 40,
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
   },
-  socialIconText: {
-    color: 'white',
-    fontSize: 22,
-    fontWeight: '600',
+  backIcon: {
+    fontSize: 40,
+    color: '#181725',
+    lineHeight: 40,
   },
-  btnText: {
+  content: {
     flex: 1,
-    color: 'white',
+  },
+  title: { 
+    fontSize: 26, 
+    fontWeight: 'bold', 
+    color: '#181725',
+    marginBottom: 30 
+  },
+  label: { 
+    fontSize: 16, 
+    color: '#7C7C7C', 
+    marginBottom: 10 
+  },
+  inputContainer: { 
+    flexDirection: 'row', 
+    alignItems: 'center',
+    borderBottomWidth: 1, 
+    borderBottomColor: '#E2E2E2', 
+    paddingBottom: 10 
+  },
+  flag: { 
+    fontSize: 24, 
+    marginRight: 10 
+  },
+  prefix: { 
+    fontSize: 18, 
+    color: '#181725',
+    marginRight: 10 
+  },
+  input: { 
+    flex: 1, 
     fontSize: 18,
-    fontWeight: '600',
-    textAlign: 'center',
-    paddingRight: 30, 
+    color: '#181725',
+  },
+  fab: { 
+    position: 'absolute', 
+    bottom: 30, 
+    right: 20, 
+    backgroundColor: '#53B175', 
+    width: 65, 
+    height: 65, 
+    borderRadius: 35, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
+  },
+  fabIcon: { 
+    color: 'white', 
+    fontSize: 35, 
+    fontWeight: 'bold',
+    lineHeight: 38,
+    marginLeft: 2, 
   }
 });

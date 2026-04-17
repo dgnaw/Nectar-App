@@ -11,7 +11,10 @@ import VerificationScreen from './src/screens/VerificationScreen';
 import SelectLocationScreen from './src/screens/SelectLocationScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
-
+import HomeScreen from './src/screens/HomeScreen';
+import ProductDetailScreen from './src/screens/ProductDetailScreen';
+import ExploreScreen from './src/screens/ExploreScreen';
+import BeveragesScreen from './src/screens/BeveragesScreen';      
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -27,6 +30,10 @@ export default function App() {
           <Stack.Screen name="SelectLocation" component={SelectLocationScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="SignUp" component={SignUpScreen} />
+          <Stack.Screen name="Home" component={HomeScreen}/>
+          <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
+          <Stack.Screen name="Explore" component={ExploreScreen} />
+          <Stack.Screen name="Beverages" component={BeveragesScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

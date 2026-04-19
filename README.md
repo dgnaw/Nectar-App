@@ -1,4 +1,4 @@
-# Bài thực hành 11/4 & 17/4: Nectar App 
+# Bài thực hành 11/4 & 17/4 & 19/4: Nectar App 
 ## Thông tin sinh viên
 
 * **Họ và tên:** Đỗ Gia Nam
@@ -45,6 +45,11 @@ npx expo start
 | Home | Product Detail | Explore | Beverages |
 | :---: | :---: | :---: | :---: |
 | <img src="./assets/homeScreen.jpg" width="200" /> | <img src="./assets/productDetailScreen.jpg" width="200" /> | <img src="./assets/exploreScreen.jpg" width="200" /> | <img src="./assets/beverageScreen.jpg" width="200" /> |
+
+| Search | Filters | Cart | Favourite |
+| :---: | :---: | :---: | :---: |
+| <img src="./assets/SearchScreen.jpg" width="200" /> | <img src="./assets/FiltersScreen.jpg" width="200" /> | <img src="./assets/CartScreen.jpg" width="200" /> | <img src="./assets/FavoriteScreen.jpg" width="200" /> |
+
 
 ## Video Demo
 

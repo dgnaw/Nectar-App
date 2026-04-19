@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'; // <-- Thêm useState
 import { 
   View, 
   Text, 
@@ -25,19 +25,15 @@ const categories = [
 ];
 
 export default function ExploreScreen({ navigation }) {
+  // Thêm state để lưu từ khóa khi gõ ở Explore
+  const [searchQuery, setSearchQuery] = useState('');
 
   const renderCategoryCard = ({ item }) => (
     <TouchableOpacity 
-      style={[
-        styles.card, 
-        { backgroundColor: item.bgColor, borderColor: item.borderColor }
-      ]}
+      style={[styles.card, { backgroundColor: item.bgColor, borderColor: item.borderColor }]}
       activeOpacity={0.7}
       onPress={() => {
-        // Xử lý chuyển hướng dựa trên id danh mục
-        if (item.id === '6') {
-          navigation.navigate('Beverages');
-        }
+        if (item.id === '6') navigation.navigate('Beverages');
       }}
     >
       <Image source={item.image} style={styles.cardImage} resizeMode="contain" />
@@ -48,7 +44,6 @@ export default function ExploreScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <StudentInfo />
-      
       <Text style={styles.headerTitle}>Find Products</Text>
 
       <View style={styles.searchBarContainer}>
@@ -57,6 +52,13 @@ export default function ExploreScreen({ navigation }) {
           style={styles.searchBarInput} 
           placeholder="Search Store" 
           placeholderTextColor="#B3B3B3"
+          value={searchQuery}
+          onChangeText={setSearchQuery} // Cập nhật text khi gõ
+          returnKeyType="search"
+          onSubmitEditing={() => {
+            // Khi bấm nút Enter/Search trên bàn phím -> Chuyển sang màn Search và truyền keyword theo
+            navigation.navigate('Search', { keyword: searchQuery });
+          }}
         />
       </View>
 
@@ -75,6 +77,7 @@ export default function ExploreScreen({ navigation }) {
   );
 }
 
+// Giữ nguyên phần styles
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#FCFCFC' },
   headerTitle: { fontSize: 20, fontWeight: 'bold', color: TEXT_COLOR_MAIN, textAlign: 'center', marginTop: 10, marginBottom: 20 },

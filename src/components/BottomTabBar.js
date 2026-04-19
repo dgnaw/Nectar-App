@@ -44,7 +44,8 @@ export default function BottomTabBar({ activeTab = 'Shop' }) {
       </TouchableOpacity>
       
       {/* Nút Cart -> Dùng Feather */}
-      <TouchableOpacity style={styles.bottomTab}>
+      <TouchableOpacity style={styles.bottomTab}
+              onPress={() => navigation.navigate('Cart')}>
         <Feather 
           name="shopping-cart" 
           size={24} 
@@ -56,7 +57,9 @@ export default function BottomTabBar({ activeTab = 'Shop' }) {
       </TouchableOpacity>
       
       {/* Nút Favourite -> Dùng Feather */}
-      <TouchableOpacity style={styles.bottomTab}>
+      <TouchableOpacity style={styles.bottomTab}
+              onPress={() => navigation.navigate('Favourite')}
+>
         <Feather 
           name="heart" 
           size={24} 

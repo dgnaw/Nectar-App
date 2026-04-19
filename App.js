@@ -14,7 +14,11 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import ProductDetailScreen from './src/screens/ProductDetailScreen';
 import ExploreScreen from './src/screens/ExploreScreen';
-import BeveragesScreen from './src/screens/BeveragesScreen';      
+import BeveragesScreen from './src/screens/BeveragesScreen';    
+import SearchScreen from './src/screens/SearchScreen';  
+import FavouriteScreen from './src/screens/FavouriteScreen';
+import FiltersScreen from './src/screens/FiltersScreen';
+import CartScreen from './src/screens/CartScreen';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -34,6 +38,10 @@ export default function App() {
           <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
           <Stack.Screen name="Explore" component={ExploreScreen} />
           <Stack.Screen name="Beverages" component={BeveragesScreen} />
+          <Stack.Screen name="Search" component={SearchScreen}/>
+          <Stack.Screen name="Filters" component={FiltersScreen} options={{ presentation: 'modal' }} />
+          <Stack.Screen name="Cart" component={CartScreen} />
+          <Stack.Screen name="Favourite" component={FavouriteScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

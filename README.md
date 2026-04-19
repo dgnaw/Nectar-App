@@ -1,4 +1,4 @@
-# Bài thực hành 11/4 & 17/4: Nectar App 
+# Bài thực hành 11/4 & 17/4 & 19/4: Nectar App 
 ## Thông tin sinh viên
 
 * **Họ và tên:** Đỗ Gia Nam
